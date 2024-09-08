@@ -23,18 +23,9 @@
 
 This project focuses on detecting and tracking people in videos using a YOLOv8 model combined with the DeepSORT tracking algorithm. The YOLOv8 model is trained to detect persons, and DeepSORT is used to assign unique IDs to each individual, allowing for consistent tracking even if they temporarily exit and re-enter the frame.
 
-## Project Structure
 
-```
-├── dataset_preparation.py     # Script to prepare the dataset
-├── train_yolov8.py            # Script to train the YOLOv8 model
-├── inference_tracking.py      # Script to run inference and tracking
-├── requirements.txt           # Required Python packages
-├── data.yaml                  # YOLO data configuration file
-├── output_with_detections.mp4 # Output video with detections (if included)
-├── README.md                  # Project documentation
-└── ...                        # Other files and directories
-```
+
+
 
 ## Prerequisites
 
