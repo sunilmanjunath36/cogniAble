@@ -75,11 +75,9 @@ This project focuses on detecting and tracking people in videos using a YOLOv8 m
 
 ## Dataset Preparation
 
-### 1. Download the Dataset
 
-- Download the public dataset from Kaggle used for training. Ensure that the dataset contains images and corresponding label files in YOLO format.
 
-### 2. Select a Subset of Images
+### 1. Creating a Dataset from the provided videos
 
 The dataset used for this project is made up of videos provided as part of the assignment. These videos were processed by extracting each frame and treating it as an individual image. We used a pre-trained YOLOv8 model to detect and label only the "person" class in these images. Labels are generated in the YOLO format, and any images that do not contain a person are automatically removed from the dataset to optimize storage and performance.
 
