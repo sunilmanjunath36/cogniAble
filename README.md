@@ -10,7 +10,7 @@
 - [Training the YOLOv8 Model](#training-the-yolov8-model)
 - [Running Inference and Tracking](#running-inference-and-tracking)
 - [Analyzing Model Predictions](#analyzing-model-predictions)
-- [Improvement](#Imporvements)
+- [Improvements](#Imporvements)
 - [Test Video Outputs](#test-video-outputs)
 ---
 
