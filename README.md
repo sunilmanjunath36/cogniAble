@@ -81,8 +81,9 @@ This project focuses on detecting and tracking people in videos using a YOLOv8 m
 
 ### 2. Select a Subset of Images
 
-Use the `dataset_preparation.py` script to select 4000 random images and their corresponding labels from the training dataset.
+The dataset used for this project is made up of videos provided as part of the assignment. These videos were processed by extracting each frame and treating it as an individual image. We used a pre-trained YOLOv8 model to detect and label only the "person" class in these images. Labels are generated in the YOLO format, and any images that do not contain a person are automatically removed from the dataset to optimize storage and performance.
 
+The following script processes the images and generates the required labels:
 **dataset_preparation.py**
 
 ```python
