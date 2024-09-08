@@ -62,7 +62,7 @@ This project focuses on detecting and tracking people in videos using a YOLOv8 m
 The dataset used for this project is made up of videos provided as part of the assignment. These videos were processed by extracting each frame and treating it as an individual image. We used a pre-trained YOLOv8 model to detect and label only the "person" class in these images. Labels are generated in the YOLO format, and any images that do not contain a person are automatically removed from the dataset to optimize storage and performance.
 
 The following script processes the images and generates the required labels:
-**dataset_preparation.py**
+
 
 ```python
 from ultralytics import YOLO
@@ -130,9 +130,9 @@ names: ['person']  # Class names
 
 ## Training the YOLOv8 Model
 
-Use the `train_yolov8.py` script to train the YOLOv8 model.
+Use the following script to train the YOLOv8 model.
 
-**train_yolov8.py**
+
 
 ```python
 from ultralytics import YOLO
@@ -154,9 +154,9 @@ model.train(data=r"C:\path\to\data.yaml",
 
 ## Running Inference and Tracking
 
-Use the `inference_tracking.py` script to perform inference and tracking on a video.
+Use the following script to perform inference and tracking on a video.
 
-**inference_tracking.py**
+
 
 ```python
 import cv2
