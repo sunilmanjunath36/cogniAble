@@ -4,19 +4,14 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Dataset Preparation](#dataset-preparation)
 - [Training the YOLOv8 Model](#training-the-yolov8-model)
 - [Running Inference and Tracking](#running-inference-and-tracking)
 - [Analyzing Model Predictions](#analyzing-model-predictions)
-- [Reproducing the Results](#reproducing-the-results)
-- [Source Code Files](#source-code-files)
+- [Improvement](#Imporvements)
 - [Test Video Outputs](#test-video-outputs)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
 ---
 
 ## Introduction
@@ -245,3 +240,7 @@ out.release()
 
 ### Imporvements:
 The current person detection model, built using the YOLOv8m model, did not achieve the desired level of accuracy. One significant factor contributing to this is the computational limitations of my laptop. During the training and inference processes, frequent lag was experienced, and the laptop occasionally shut down, likely due to overheating or insufficient resources to handle the model's computational demands. While the YOLOv8m model is more accurate than lighter versions like YOLOv8 Nano, the performance was hampered by the hardware constraints. To enhance the model’s accuracy, upgrading to more powerful hardware or utilizing cloud-based solutions with higher GPU capabilities would allow the model to run more efficiently, potentially improving detection accuracy without the interruptions caused by hardware limitations.
+
+
+### Test-video-outputs
+https://drive.google.com/drive/folders/1rc0aFmBm-iuGgJzFNIaBUZ6vphxs7OXq?usp=sharing
