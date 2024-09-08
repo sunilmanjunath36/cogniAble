@@ -53,14 +53,8 @@ This project focuses on detecting and tracking people in videos using a YOLOv8 m
    cd yourrepository
    ```
 
-2. **Create a virtual environment (optional but recommended)**
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install the required packages**
+2. **Install the required packages**
 
    ```bash
    pip install -r requirements.txt
