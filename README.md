@@ -239,7 +239,10 @@ out.release()
 - **`max_age=1800`:** Allows the tracker to keep a person's ID for 1800 frames even
 
 ### Imporvements:
-The current person detection model, built using the YOLOv8m model, did not achieve the desired level of accuracy. One significant factor contributing to this is the computational limitations of my laptop. During the training and inference processes, frequent lag was experienced, and the laptop occasionally shut down, likely due to overheating or insufficient resources to handle the model's computational demands. While the YOLOv8m model is more accurate than lighter versions like YOLOv8 Nano, the performance was hampered by the hardware constraints. To enhance the model’s accuracy, upgrading to more powerful hardware or utilizing cloud-based solutions with higher GPU capabilities would allow the model to run more efficiently, potentially improving detection accuracy without the interruptions caused by hardware limitations.
+
+The current person detection model, built using the YOLOv8m model, did not achieve the desired level of accuracy. One significant factor contributing to this is the computational limitations of my laptop. During the training and inference processes, frequent lag was experienced, and the laptop occasionally shut down, likely due to overheating or insufficient resources to handle the model's computational demands. While the YOLOv8m model is more accurate than lighter versions like YOLOv8 Nano, the performance was hampered by the hardware constraints. 
+
+Additionally, similar issues were encountered with the re-identification (Re-ID) process, where tracking the same person across multiple frames was affected due to these computational limitations. To enhance both detection and Re-ID accuracy, upgrading to more powerful hardware or utilizing cloud-based solutions with higher GPU capabilities would allow the model to run more efficiently, reducing lags and interruptions, and improving overall performance.
 
 
 ### Test-video-outputs
