@@ -86,42 +86,51 @@ Use the `dataset_preparation.py` script to select 4000 random images and their c
 **dataset_preparation.py**
 
 ```python
+from ultralytics import YOLO
 import os
-import random
-import shutil
+import cv2
 
-# Paths to your directories
-train_images_dir = r"C:\path\to\dataset\train\images"
-train_labels_dir = r"C:\path\to\dataset\train\labels"
-output_images_dir = r"C:\path\to\dataset\new_train\images"
-output_labels_dir = r"C:\path\to\dataset\new_train\labels"
+# Load a pre-trained YOLOv8 model
+model = YOLO('yolov8n.pt')  # Using YOLOv8 Nano for fast processing
 
-# Ensure the output directories exist
-os.makedirs(output_images_dir, exist_ok=True)
-os.makedirs(output_labels_dir, exist_ok=True)
+# Directory paths
+image_dir = r"C:\Users\sunil\Downloads\cogniable\frames\val"
+label_dir = r"C:\Users\sunil\Downloads\cogniable\labels\val"
+os.makedirs(label_dir, exist_ok=True)
 
-# Get all image file names
-image_files = os.listdir(train_images_dir)
+# Define the class ID for "person"
+PERSON_CLASS_ID = 0
 
-# Randomly select 4000 images
-selected_images = random.sample(image_files, 4000)
+# Process each image
+for image_file in os.listdir(image_dir):
+    image_path = os.path.join(image_dir, image_file)
+    image = cv2.imread(image_path)
 
-# Copy the selected images and corresponding labels to the output directory
-for image_file in selected_images:
-    # Copy image
-    src_image_path = os.path.join(train_images_dir, image_file)
-    dst_image_path = os.path.join(output_images_dir, image_file)
-    shutil.copy(src_image_path, dst_image_path)
+    # Run detection
+    results = model(image)
+
+    # Initialize a flag to check if any person is detected
+    person_detected = False
+
+    # Write labels in YOLO format, but only for persons
+    label_filename = os.path.splitext(image_file)[0] + '.txt'
+    label_path = os.path.join(label_dir, label_filename)
     
-    # Copy corresponding label
-    label_file = os.path.splitext(image_file)[0] + '.txt'  # handles different image extensions
-    src_label_path = os.path.join(train_labels_dir, label_file)
-    dst_label_path = os.path.join(output_labels_dir, label_file)
-    shutil.copy(src_label_path, dst_label_path)
+    with open(label_path, 'w') as f:
+        for result in results:
+            for bbox, conf, cls in zip(result.boxes.xyxy, result.boxes.conf, result.boxes.cls):
+                if int(cls) == PERSON_CLASS_ID:  # Filter for "person" class only
+                    person_detected = True
+                    x_center = (bbox[0] + bbox[2]) / 2 / image.shape[1]
+                    y_center = (bbox[1] + bbox[3]) / 2 / image.shape[0]
+                    width = (bbox[2] - bbox[0]) / image.shape[1]
+                    height = (bbox[3] - bbox[1]) / image.shape[0]
+                    f.write(f'{int(cls)} {x_center} {y_center} {width} {height}\n')
 
-print("Successfully copied 4000 images and their corresponding labels.")
-```
-
+    # If no person was detected, delete the image and the label file
+    if not person_detected:
+        os.remove(image_path)
+        os.remove(label_path)
 - **Instructions:**
   - Replace the paths with the actual paths to your dataset directories.
   - Run the script to copy the selected images and labels.
