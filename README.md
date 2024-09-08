@@ -246,4 +246,5 @@ Additionally, similar issues were encountered with the re-identification (Re-ID)
 
 
 ### Test-video-outputs
+Please find the Output video and the saved custom model in the below drive link
 https://drive.google.com/drive/folders/1rc0aFmBm-iuGgJzFNIaBUZ6vphxs7OXq?usp=sharing
